@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Tasks-->
+        <!--Tasks Item-->
         <scene sceneID="Ak9-2H-Ica">
             <objects>
-                <tableViewController id="CAY-CS-SbJ" customClass="MyTasksViewController" customModule="MyTasks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CAY-CS-SbJ" userLabel="Tasks Item" customClass="TaskListsViewController" customModule="MyTasks" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0KV-Xj-Ve1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,7 @@
                             <outlet property="delegate" destination="CAY-CS-SbJ" id="pml-r3-MGK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Tasks" id="8Hc-rB-Rww">
+                    <navigationItem key="navigationItem" title="(Name of the Task)" id="8Hc-rB-Rww">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RD3-W5-UMY">
                             <connections>
                                 <segue destination="U6c-Dy-8RB" kind="show" identifier="AddItem" id="ngN-Ec-TGn"/>
@@ -70,7 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCV-5l-y3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767.20000000000005" y="53.523238380809602"/>
+            <point key="canvasLocation" x="510" y="54"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="E44-UY-dy4">
@@ -116,7 +116,7 @@
                             <outlet property="delegate" destination="U6c-Dy-8RB" id="eUi-5j-aoK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Item" id="pql-Ad-wgX">
+                    <navigationItem key="navigationItem" title="Add Item" largeTitleDisplayMode="never" id="pql-Ad-wgX">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oP0-me-8dA">
                             <connections>
                                 <action selector="cancel" destination="U6c-Dy-8RB" id="Neb-gc-ik4"/>
@@ -135,28 +135,129 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTo-sL-6cd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573.5999999999999" y="53.523238380809602"/>
+            <point key="canvasLocation" x="1342" y="54"/>
+        </scene>
+        <!--All Task Lists-->
+        <scene sceneID="IDd-e1-Ku1">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UM1-Bz-mrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tableViewController id="aPy-6N-E5v" userLabel="All Task Lists" customClass="AllTasksViewController" customModule="MyTasks" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bcw-aC-HAG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="aPy-6N-E5v" id="Loq-AB-RKH"/>
+                            <outlet property="delegate" destination="aPy-6N-E5v" id="eqW-9A-RWZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Tasks" id="5Kc-6J-d5v">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0IL-OF-Odi">
+                            <connections>
+                                <segue destination="fYT-C1-X6z" kind="show" identifier="AddNewTask" id="xm3-5s-tyU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="CAY-CS-SbJ" kind="show" identifier="ShowTasks" id="hes-F8-ysK"/>
+                        <segue destination="fYT-C1-X6z" kind="show" identifier="EditTask" id="LAu-Jo-sCe"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-279.19999999999999" y="53.523238380809602"/>
+        </scene>
+        <!--New Task-->
+        <scene sceneID="bZ3-nH-Gma">
+            <objects>
+                <tableViewController storyboardIdentifier="ListDetailViewController" id="fYT-C1-X6z" customClass="ListDetailViewController" customModule="MyTasks" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="rBK-ZP-8gg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="WO8-Fb-Bjs">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="L8s-ao-SbP">
+                                        <rect key="frame" x="0.0" y="18" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L8s-ao-SbP" id="Vq8-ch-pI8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Task" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hhk-g7-BYQ">
+                                                    <rect key="frame" x="16" y="4" width="343" height="34.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="fYT-C1-X6z" eventType="editingDidEndOnExit" id="Fc2-TW-pB0"/>
+                                                        <outlet property="delegate" destination="fYT-C1-X6z" id="7g7-YT-1Gh"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Hhk-g7-BYQ" firstAttribute="leading" secondItem="Vq8-ch-pI8" secondAttribute="leading" constant="16" id="Iuk-xe-HEk"/>
+                                                <constraint firstAttribute="trailing" secondItem="Hhk-g7-BYQ" secondAttribute="trailing" constant="16" id="Laf-zs-Dit"/>
+                                                <constraint firstAttribute="bottom" secondItem="Hhk-g7-BYQ" secondAttribute="bottom" constant="5.5" id="WSr-5e-U3c"/>
+                                                <constraint firstItem="Hhk-g7-BYQ" firstAttribute="top" secondItem="Vq8-ch-pI8" secondAttribute="top" constant="4" id="n7a-ix-xXh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="fYT-C1-X6z" id="cI6-gp-KJx"/>
+                            <outlet property="delegate" destination="fYT-C1-X6z" id="f3U-cK-kFf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Task" largeTitleDisplayMode="never" id="a6f-8x-SGE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ebE-WJ-Nap">
+                            <connections>
+                                <action selector="cancel" destination="fYT-C1-X6z" id="MhV-Nh-2HK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="94z-zt-6yj">
+                            <connections>
+                                <action selector="done" destination="fYT-C1-X6z" id="UVS-II-pOe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="94z-zt-6yj" id="uCT-tC-iAZ"/>
+                        <outlet property="textField" destination="Hhk-g7-BYQ" id="5X5-h5-zqs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x2h-ob-GdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279" y="818"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tzg-g5-VFR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dHC-dx-YyU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="73B-3X-vmC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="73B-3X-vmC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="CAY-CS-SbJ" kind="relationship" relationship="rootViewController" id="W5K-vA-WBH"/>
+                        <segue destination="aPy-6N-E5v" kind="relationship" relationship="rootViewController" id="HgG-Lf-LPA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vx-gh-fh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172" y="53.523238380809602"/>
+            <point key="canvasLocation" x="-1084" y="54"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="xm3-5s-tyU"/>
         <segue reference="Cxr-pq-64F"/>
     </inferredMetricsTieBreakers>
     <resources>

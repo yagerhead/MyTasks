@@ -1,54 +1,54 @@
 //
-//  itemDetailViewController.swift
+//  ListDetailViewController.swift
 //  MyTasks
 //
-//  Created by Manu Safarov on 15.05.2021.
+//  Created by Manu Safarov on 18.05.2021.
 //
 
 import UIKit
 
-protocol ItemDetailViewControllerDelegate: AnyObject {
-    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
-    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: TasksListItem)
-    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: TasksListItem)
+protocol ListDetailViewControllerDelegate: AnyObject {
+    func listDetailViewControllerDidCancel(_ controller: ListDetailViewController)
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding tasks: Tasks)
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing tasks: Tasks)
 }
 
-class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
+class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet var textField: UITextField!
+    @IBOutlet var doneBarButton: UIBarButtonItem!
     
-    weak var delegate: ItemDetailViewControllerDelegate?
-    var itemToEdit: TasksListItem?
+    weak var delegate: ListDetailViewControllerDelegate?
+    var tasksListToEdit: Tasks?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let item = itemToEdit {
-            title = "Edit Item"
-            textField.text = item.text
+        if let tasks = tasksListToEdit {
+            title = "Edit Task"
+            textField.text = tasks.name
             doneBarButton.isEnabled = true
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         textField.becomeFirstResponder()
     }
     
     // MARK: - Actions
     @IBAction func cancel() {
-        delegate?.itemDetailViewControllerDidCancel(self)
+        delegate?.listDetailViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
-        if let item = itemToEdit {
-            item.text = textField.text!
-            delegate?.itemDetailViewController(self, didFinishEditing: item)
+        if let tasks = tasksListToEdit {
+            tasks.name = textField.text!
+            delegate?.listDetailViewController(self, didFinishEditing: tasks)
         } else {
-            let item = TasksListItem()
-            item.text = textField.text!
-            delegate?.itemDetailViewController(self, didFinishAdding: item)
+            let tasks = Tasks(name: textField.text!)
+            delegate?.listDetailViewController(self, didFinishAdding: tasks)
         }
     }
     
@@ -63,7 +63,6 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         let oldText = textField.text!
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
-        
         doneBarButton.isEnabled = !newText.isEmpty
         return true
     }

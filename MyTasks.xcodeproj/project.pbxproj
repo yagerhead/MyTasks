@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C13CA0C2651BA2C00322C50 /* AllTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13CA0B2651BA2C00322C50 /* AllTasksViewController.swift */; };
+		5C13CA0E2653D38800322C50 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13CA0D2653D38800322C50 /* Tasks.swift */; };
+		5C13CA102653E03800322C50 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */; };
+		5C13CA142654087E00322C50 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C13CA122654087E00322C50 /* Poppins-Medium.ttf */; };
+		5C13CA152654087E00322C50 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C13CA132654087E00322C50 /* Poppins-SemiBold.ttf */; };
+		5C13CA1726541F4100322C50 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13CA1626541F4100322C50 /* DataModel.swift */; };
 		5C936A4C2650048500A75AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C936A4B2650048500A75AD7 /* AppDelegate.swift */; };
 		5C936A4E2650048500A75AD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C936A4D2650048500A75AD7 /* SceneDelegate.swift */; };
-		5C936A502650048500A75AD7 /* MyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C936A4F2650048500A75AD7 /* MyTasksViewController.swift */; };
+		5C936A502650048500A75AD7 /* TaskListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C936A4F2650048500A75AD7 /* TaskListsViewController.swift */; };
 		5C936A532650048500A75AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C936A512650048500A75AD7 /* Main.storyboard */; };
 		5C936A552650048700A75AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C936A542650048700A75AD7 /* Assets.xcassets */; };
 		5C936A582650048700A75AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C936A562650048700A75AD7 /* LaunchScreen.storyboard */; };
@@ -18,10 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C13CA0B2651BA2C00322C50 /* AllTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksViewController.swift; sourceTree = "<group>"; };
+		5C13CA0D2653D38800322C50 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		5C13CA122654087E00322C50 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		5C13CA132654087E00322C50 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		5C13CA1626541F4100322C50 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		5C936A482650048500A75AD7 /* MyTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C936A4B2650048500A75AD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C936A4D2650048500A75AD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C936A4F2650048500A75AD7 /* MyTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksViewController.swift; sourceTree = "<group>"; };
+		5C936A4F2650048500A75AD7 /* TaskListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListsViewController.swift; sourceTree = "<group>"; };
 		5C936A522650048500A75AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C936A542650048700A75AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C936A572650048700A75AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C13CA112654083100322C50 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5C13CA122654087E00322C50 /* Poppins-Medium.ttf */,
+				5C13CA132654087E00322C50 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		5C936A3F2650048500A75AD7 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +81,20 @@
 		5C936A4A2650048500A75AD7 /* MyTasks */ = {
 			isa = PBXGroup;
 			children = (
+				5C13CA0B2651BA2C00322C50 /* AllTasksViewController.swift */,
 				5C936A4B2650048500A75AD7 /* AppDelegate.swift */,
-				5C936A4D2650048500A75AD7 /* SceneDelegate.swift */,
-				5C936A4F2650048500A75AD7 /* MyTasksViewController.swift */,
+				5C13CA1626541F4100322C50 /* DataModel.swift */,
 				5C936A612650109200A75AD7 /* ItemDetailViewController.swift */,
+				5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */,
+				5C936A4D2650048500A75AD7 /* SceneDelegate.swift */,
+				5C936A4F2650048500A75AD7 /* TaskListsViewController.swift */,
+				5C13CA0D2653D38800322C50 /* Tasks.swift */,
+				5C936A5F26500A3B00A75AD7 /* TasksListItem.swift */,
 				5C936A512650048500A75AD7 /* Main.storyboard */,
 				5C936A542650048700A75AD7 /* Assets.xcassets */,
+				5C13CA112654083100322C50 /* Fonts */,
 				5C936A562650048700A75AD7 /* LaunchScreen.storyboard */,
 				5C936A592650048700A75AD7 /* Info.plist */,
-				5C936A5F26500A3B00A75AD7 /* TasksListItem.swift */,
 			);
 			path = MyTasks;
 			sourceTree = "<group>";
@@ -130,7 +156,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C13CA152654087E00322C50 /* Poppins-SemiBold.ttf in Resources */,
 				5C936A582650048700A75AD7 /* LaunchScreen.storyboard in Resources */,
+				5C13CA142654087E00322C50 /* Poppins-Medium.ttf in Resources */,
 				5C936A552650048700A75AD7 /* Assets.xcassets in Resources */,
 				5C936A532650048500A75AD7 /* Main.storyboard in Resources */,
 			);
@@ -144,10 +172,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C936A622650109200A75AD7 /* ItemDetailViewController.swift in Sources */,
-				5C936A502650048500A75AD7 /* MyTasksViewController.swift in Sources */,
+				5C936A502650048500A75AD7 /* TaskListsViewController.swift in Sources */,
 				5C936A4C2650048500A75AD7 /* AppDelegate.swift in Sources */,
 				5C936A4E2650048500A75AD7 /* SceneDelegate.swift in Sources */,
+				5C13CA0C2651BA2C00322C50 /* AllTasksViewController.swift in Sources */,
 				5C936A6026500A3B00A75AD7 /* TasksListItem.swift in Sources */,
+				5C13CA0E2653D38800322C50 /* Tasks.swift in Sources */,
+				5C13CA102653E03800322C50 /* ListDetailViewController.swift in Sources */,
+				5C13CA1726541F4100322C50 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
