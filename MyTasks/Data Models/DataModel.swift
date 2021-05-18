@@ -10,6 +10,43 @@ import Foundation
 class DataModel {
     var lists = [Tasks]()
     
+    var indexOfSelectedTask: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "TaskIndex")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "TaskIndex")
+        }
+    }
+    
+    init() {
+        loadTasks()
+        registerDefaults()
+        handleFirstTime()
+    }
+    
+    /*
+     To prevent the app from crashing in the absence of data.
+     When the index of the dataModel array is zero, the application crashes.
+     */
+    func registerDefaults() {
+        let dictionary = ["TaskIndex": -1, "FirstTime": true] as [String: Any]
+        UserDefaults.standard.register(defaults: dictionary)
+    }
+    
+    func handleFirstTime() {
+        let userDefaults = UserDefaults.standard
+        let firstTime = userDefaults.bool(forKey: "FirstTime")
+        
+        if firstTime {
+            let checklist = Tasks(name: "List")
+            lists.append(checklist)
+            indexOfSelectedTask = 0
+            
+            userDefaults.set(false, forKey: "FirstTime")
+        }
+    }
+    
     func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -39,8 +76,5 @@ class DataModel {
                 print("Error decoding list array: \(error.localizedDescription)")
             }
         }
-    }
-    init() {
-        loadTasks()
     }
 }

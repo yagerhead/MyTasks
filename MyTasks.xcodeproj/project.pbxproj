@@ -62,6 +62,38 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5C13CA18265451D900322C50 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C13CA0B2651BA2C00322C50 /* AllTasksViewController.swift */,
+				5C936A4F2650048500A75AD7 /* TaskListsViewController.swift */,
+				5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */,
+				5C936A612650109200A75AD7 /* ItemDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5C13CA192654520700322C50 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				5C13CA1626541F4100322C50 /* DataModel.swift */,
+				5C936A5F26500A3B00A75AD7 /* TasksListItem.swift */,
+				5C13CA0D2653D38800322C50 /* Tasks.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		5C13CA1A2654526100322C50 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5C936A512650048500A75AD7 /* Main.storyboard */,
+				5C936A562650048700A75AD7 /* LaunchScreen.storyboard */,
+				5C936A542650048700A75AD7 /* Assets.xcassets */,
+				5C13CA112654083100322C50 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5C936A3F2650048500A75AD7 = {
 			isa = PBXGroup;
 			children = (
@@ -81,19 +113,11 @@
 		5C936A4A2650048500A75AD7 /* MyTasks */ = {
 			isa = PBXGroup;
 			children = (
-				5C13CA0B2651BA2C00322C50 /* AllTasksViewController.swift */,
+				5C13CA192654520700322C50 /* Data Models */,
+				5C13CA18265451D900322C50 /* View Controllers */,
+				5C13CA1A2654526100322C50 /* Resources */,
 				5C936A4B2650048500A75AD7 /* AppDelegate.swift */,
-				5C13CA1626541F4100322C50 /* DataModel.swift */,
-				5C936A612650109200A75AD7 /* ItemDetailViewController.swift */,
-				5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */,
 				5C936A4D2650048500A75AD7 /* SceneDelegate.swift */,
-				5C936A4F2650048500A75AD7 /* TaskListsViewController.swift */,
-				5C13CA0D2653D38800322C50 /* Tasks.swift */,
-				5C936A5F26500A3B00A75AD7 /* TasksListItem.swift */,
-				5C936A512650048500A75AD7 /* Main.storyboard */,
-				5C936A542650048700A75AD7 /* Assets.xcassets */,
-				5C13CA112654083100322C50 /* Fonts */,
-				5C936A562650048700A75AD7 /* LaunchScreen.storyboard */,
 				5C936A592650048700A75AD7 /* Info.plist */,
 			);
 			path = MyTasks;

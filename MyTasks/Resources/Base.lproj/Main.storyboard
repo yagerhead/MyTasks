@@ -140,7 +140,6 @@
         <!--All Task Lists-->
         <scene sceneID="IDd-e1-Ku1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UM1-Bz-mrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="aPy-6N-E5v" userLabel="All Task Lists" customClass="AllTasksViewController" customModule="MyTasks" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bcw-aC-HAG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -163,6 +162,7 @@
                         <segue destination="fYT-C1-X6z" kind="show" identifier="EditTask" id="LAu-Jo-sCe"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UM1-Bz-mrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-279.19999999999999" y="53.523238380809602"/>
         </scene>

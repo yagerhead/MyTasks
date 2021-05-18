@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllTasksViewController: UITableViewController, ListDetailViewControllerDelegate {
+class AllTasksViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
     
     let cellIdentifier = "TasksCell"
     var dataModel: DataModel!
@@ -15,6 +15,18 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.delegate = self
+        
+        //The user returns to the task from which the application was closed (to improve the UX)
+        let index = dataModel.indexOfSelectedTask
+        if index >= 0 && index < dataModel.lists.count {
+            let tasks = dataModel.lists[index]
+            performSegue(withIdentifier: "ShowTasks", sender: tasks)
+        }
     }
     
     // MARK: - Navigation
@@ -28,7 +40,7 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View Delegates
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataModel.lists.count
     }
@@ -40,11 +52,12 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
         cell.textLabel?.font = UIFont(name: "Poppins-Medium", size: 17)
         cell.accessoryType = .detailDisclosureButton
         
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dataModel.indexOfSelectedTask = indexPath.row
+        
         let tasks = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: "ShowTasks", sender: tasks)
     }
@@ -90,5 +103,13 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
             }
         }
         navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: - Navigation Controller Delegates
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        if viewController === self {
+            dataModel.indexOfSelectedTask = -1
+        }
     }
 }
