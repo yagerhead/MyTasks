@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol ItemDetailViewControllerDelegate: AnyObject {
     func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
@@ -17,6 +18,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet var shouldRemindSwithc: UISwitch!
+    @IBOutlet var datePicker: UIDatePicker!
     
     weak var delegate: ItemDetailViewControllerDelegate?
     var itemToEdit: TasksListItem?
@@ -28,6 +31,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             textField.text = item.text
             doneBarButton.isEnabled = true
+            shouldRemindSwithc.isOn = item.shouldRemind
+            datePicker.date = item.dueDate
         }
     }
     
@@ -44,11 +49,29 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textField.text!
+            item.shouldRemind = shouldRemindSwithc.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
             let item = TasksListItem(text: textField.text!)
+            item.checked = false
+            item.shouldRemind = shouldRemindSwithc.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
+    }
+    
+    @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
+      textField.resignFirstResponder()
+
+      if switchControl.isOn {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) {_, _ in
+          // do nothing
+        }
+      }
     }
     
     // MARK: - Table View Delegates

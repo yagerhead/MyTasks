@@ -14,7 +14,6 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = UIView()
     }
@@ -53,13 +52,14 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Get cell
         let cell: UITableViewCell!
         if let tmp = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
             cell = tmp
         } else {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
-        
+        // Update cell infromation
         let tasks = dataModel.lists[indexPath.row]
         let count = tasks.countUncheckedItems()
         

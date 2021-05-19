@@ -20,6 +20,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     @IBOutlet weak var iconImage: UIImageView!
     
     weak var delegate: ListDetailViewControllerDelegate?
+    
     var tasksListToEdit: Tasks?
     var iconName = "ToDo"
     
@@ -37,7 +38,6 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         textField.becomeFirstResponder()
     }
     

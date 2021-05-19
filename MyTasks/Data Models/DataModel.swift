@@ -84,4 +84,11 @@ class DataModel {
             return list1.name.localizedStandardCompare(list2.name) == .orderedAscending
         }
     }
+    
+    class func nextTaskItemID() -> Int {
+      let userDefaults = UserDefaults.standard
+      let itemID = userDefaults.integer(forKey: "TaskItemID")
+      userDefaults.set(itemID + 1, forKey: "TaskItemID")
+      return itemID
+    }
 }
