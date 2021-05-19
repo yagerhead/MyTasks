@@ -14,7 +14,14 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        
+        tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,12 +53,27 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell: UITableViewCell!
+        if let tmp = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = tmp
+        } else {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
+        
         let tasks = dataModel.lists[indexPath.row]
+        let count = tasks.countUncheckedItems()
+        
         cell.textLabel!.text = tasks.name
         cell.textLabel?.font = UIFont(name: "Poppins-Medium", size: 17)
         cell.accessoryType = .detailDisclosureButton
+        cell.detailTextLabel?.font = UIFont(name: "Poppins-Regular", size: 11)
         
+        if tasks.items.count == 0 {
+            cell.detailTextLabel!.text = "No Items"
+        } else {
+            cell.detailTextLabel!.text = count == 0 ? "All Done" : "\(count) Remaining"
+        }
+        cell.imageView!.image = UIImage(named: tasks.iconName)
         return cell
     }
     
@@ -85,23 +107,15 @@ class AllTasksViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding tasks: Tasks) {
-        let newRowIndex = dataModel.lists.count
         dataModel.lists.append(tasks)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        
+        dataModel.sortTasks()
+        tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing tasks: Tasks) {
-        if let index = dataModel.lists.firstIndex(of: tasks) {
-            let indexPath = IndexPath(row: index, section: 0)
-            if let cell = tableView.cellForRow(at: indexPath) {
-                cell.textLabel!.text = tasks.name
-            }
-        }
+        dataModel.sortTasks()
+        tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
     

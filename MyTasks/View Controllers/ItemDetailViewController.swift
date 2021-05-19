@@ -46,8 +46,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             item.text = textField.text!
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
-            let item = TasksListItem()
-            item.text = textField.text!
+            let item = TasksListItem(text: textField.text!)
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }

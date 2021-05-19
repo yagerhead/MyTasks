@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C01969F26552D6A0005EFDD /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C01969E26552D6A0005EFDD /* Poppins-Regular.ttf */; };
+		5C0196A126552E8C0005EFDD /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0196A026552E8C0005EFDD /* IconPickerViewController.swift */; };
 		5C13CA0C2651BA2C00322C50 /* AllTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13CA0B2651BA2C00322C50 /* AllTasksViewController.swift */; };
 		5C13CA0E2653D38800322C50 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13CA0D2653D38800322C50 /* Tasks.swift */; };
 		5C13CA102653E03800322C50 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C01969E26552D6A0005EFDD /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		5C0196A026552E8C0005EFDD /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 		5C13CA0B2651BA2C00322C50 /* AllTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksViewController.swift; sourceTree = "<group>"; };
 		5C13CA0D2653D38800322C50 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 		5C13CA112654083100322C50 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5C01969E26552D6A0005EFDD /* Poppins-Regular.ttf */,
 				5C13CA122654087E00322C50 /* Poppins-Medium.ttf */,
 				5C13CA132654087E00322C50 /* Poppins-SemiBold.ttf */,
 			);
@@ -69,6 +74,7 @@
 				5C936A4F2650048500A75AD7 /* TaskListsViewController.swift */,
 				5C13CA0F2653E03800322C50 /* ListDetailViewController.swift */,
 				5C936A612650109200A75AD7 /* ItemDetailViewController.swift */,
+				5C0196A026552E8C0005EFDD /* IconPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 				5C13CA152654087E00322C50 /* Poppins-SemiBold.ttf in Resources */,
 				5C936A582650048700A75AD7 /* LaunchScreen.storyboard in Resources */,
 				5C13CA142654087E00322C50 /* Poppins-Medium.ttf in Resources */,
+				5C01969F26552D6A0005EFDD /* Poppins-Regular.ttf in Resources */,
 				5C936A552650048700A75AD7 /* Assets.xcassets in Resources */,
 				5C936A532650048500A75AD7 /* Main.storyboard in Resources */,
 			);
@@ -198,6 +205,7 @@
 				5C936A622650109200A75AD7 /* ItemDetailViewController.swift in Sources */,
 				5C936A502650048500A75AD7 /* TaskListsViewController.swift in Sources */,
 				5C936A4C2650048500A75AD7 /* AppDelegate.swift in Sources */,
+				5C0196A126552E8C0005EFDD /* IconPickerViewController.swift in Sources */,
 				5C936A4E2650048500A75AD7 /* SceneDelegate.swift in Sources */,
 				5C13CA0C2651BA2C00322C50 /* AllTasksViewController.swift in Sources */,
 				5C936A6026500A3B00A75AD7 /* TasksListItem.swift in Sources */,

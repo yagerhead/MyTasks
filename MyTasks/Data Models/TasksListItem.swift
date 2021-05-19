@@ -11,6 +11,11 @@ class TasksListItem: NSObject, Codable {
     var text = ""
     var checked = false
     
+    init(text: String) {
+        self.text = text
+        super.init()
+    }
+    
     func toggleChecked() {
         checked.toggle()
     }

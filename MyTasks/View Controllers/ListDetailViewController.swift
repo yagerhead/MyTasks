@@ -13,13 +13,15 @@ protocol ListDetailViewControllerDelegate: AnyObject {
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing tasks: Tasks)
 }
 
-class ListDetailViewController: UITableViewController, UITextFieldDelegate {
+class ListDetailViewController: UITableViewController, UITextFieldDelegate, IconPickerViewControllerDelegate {
     
     @IBOutlet var textField: UITextField!
     @IBOutlet var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var iconImage: UIImageView!
     
     weak var delegate: ListDetailViewControllerDelegate?
     var tasksListToEdit: Tasks?
+    var iconName = "ToDo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +30,23 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Task"
             textField.text = tasks.name
             doneBarButton.isEnabled = true
+            iconName = tasks.iconName
         }
+        iconImage.image = UIImage(named: iconName)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         textField.becomeFirstResponder()
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "PickIcon" {
+        let controller = segue.destination as! IconPickerViewController
+        controller.delegate = self
+      }
     }
     
     // MARK: - Actions
@@ -45,16 +57,17 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func done() {
         if let tasks = tasksListToEdit {
             tasks.name = textField.text!
+            tasks.iconName = iconName
             delegate?.listDetailViewController(self, didFinishEditing: tasks)
         } else {
-            let tasks = Tasks(name: textField.text!)
+            let tasks = Tasks(name: textField.text!, iconName: iconName)
             delegate?.listDetailViewController(self, didFinishAdding: tasks)
         }
     }
     
     // MARK: - Table View Delegates
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+        return indexPath.section == 1 ? indexPath : nil
     }
     
     // MARK: - Text Field Delegates
@@ -70,5 +83,12 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         doneBarButton.isEnabled = false
         return true
+    }
+    
+    // MARK: - Icon Picker View Controller Delegate
+    func iconPicker(_ picker: IconPickerViewController, didPick iconName: String) {
+      self.iconName = iconName
+      iconImage.image = UIImage(named: iconName)
+      navigationController?.popViewController(animated: true)
     }
 }
