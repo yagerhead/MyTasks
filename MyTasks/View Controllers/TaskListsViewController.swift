@@ -28,7 +28,7 @@ class TaskListsViewController: UITableViewController, ItemDetailViewControllerDe
         } else if segue.identifier == "EditItem" {
             let controller = segue.destination as! ItemDetailViewController
             controller.delegate = self
-            
+
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 controller.itemToEdit = tasks.items[indexPath.row]
             }
@@ -50,6 +50,8 @@ class TaskListsViewController: UITableViewController, ItemDetailViewControllerDe
         label.text = item.text
     }
     
+    
+    
     // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.items.count
@@ -59,18 +61,23 @@ class TaskListsViewController: UITableViewController, ItemDetailViewControllerDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "TasksListItem", for: indexPath)
         
         let item = tasks.items[indexPath.row]
-        
         configureText(for: cell, with: item)
         configureCheckmark(for: cell, with: item)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        tasks.items.remove(at: indexPath.row)
-        
-        let indexPaths = [indexPath]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
+        let deleteAction = UIContextualAction(style: .normal, title: nil) { (_, _, completionHandler) in
+            self.tasks.items.remove(at: indexPath.row)
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .right)
+            completionHandler(true)
+        }
+        deleteAction.image = UIImage(named: "DeleteIcon")
+        deleteAction.backgroundColor = UIColor(named: "secondMainColour")
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
     }
     
     // MARK:- Table View Delegate
@@ -94,7 +101,7 @@ class TaskListsViewController: UITableViewController, ItemDetailViewControllerDe
         
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
+        tableView.insertRows(at: indexPaths, with: .left)
         
         navigationController?.popViewController(animated:true)
     }

@@ -23,6 +23,7 @@
 		5C936A582650048700A75AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C936A562650048700A75AD7 /* LaunchScreen.storyboard */; };
 		5C936A6026500A3B00A75AD7 /* TasksListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C936A5F26500A3B00A75AD7 /* TasksListItem.swift */; };
 		5C936A622650109200A75AD7 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C936A612650109200A75AD7 /* ItemDetailViewController.swift */; };
+		5CA4199C265682600048DB43 /* SF-Compact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA4199B265682600048DB43 /* SF-Compact.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5C936A592650048700A75AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C936A5F26500A3B00A75AD7 /* TasksListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListItem.swift; sourceTree = "<group>"; };
 		5C936A612650109200A75AD7 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		5CA4199B265682600048DB43 /* SF-Compact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		5C13CA112654083100322C50 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5CA4199B265682600048DB43 /* SF-Compact.ttf */,
 				5C01969E26552D6A0005EFDD /* Poppins-Regular.ttf */,
 				5C13CA122654087E00322C50 /* Poppins-Medium.ttf */,
 				5C13CA132654087E00322C50 /* Poppins-SemiBold.ttf */,
@@ -79,14 +82,14 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		5C13CA192654520700322C50 /* Data Models */ = {
+		5C13CA192654520700322C50 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				5C13CA1626541F4100322C50 /* DataModel.swift */,
 				5C936A5F26500A3B00A75AD7 /* TasksListItem.swift */,
 				5C13CA0D2653D38800322C50 /* Tasks.swift */,
 			);
-			path = "Data Models";
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5C13CA1A2654526100322C50 /* Resources */ = {
@@ -119,7 +122,7 @@
 		5C936A4A2650048500A75AD7 /* MyTasks */ = {
 			isa = PBXGroup;
 			children = (
-				5C13CA192654520700322C50 /* Data Models */,
+				5C13CA192654520700322C50 /* Models */,
 				5C13CA18265451D900322C50 /* View Controllers */,
 				5C13CA1A2654526100322C50 /* Resources */,
 				5C936A4B2650048500A75AD7 /* AppDelegate.swift */,
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C13CA152654087E00322C50 /* Poppins-SemiBold.ttf in Resources */,
+				5CA4199C265682600048DB43 /* SF-Compact.ttf in Resources */,
 				5C936A582650048700A75AD7 /* LaunchScreen.storyboard in Resources */,
 				5C13CA142654087E00322C50 /* Poppins-Medium.ttf in Resources */,
 				5C01969F26552D6A0005EFDD /* Poppins-Regular.ttf in Resources */,
@@ -361,7 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42D78766UF;
 				INFOPLIST_FILE = MyTasks/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,7 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42D78766UF;
 				INFOPLIST_FILE = MyTasks/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

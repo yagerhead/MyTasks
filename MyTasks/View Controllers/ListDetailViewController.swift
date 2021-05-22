@@ -27,6 +27,10 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackButton")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackButton")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+        
         if let tasks = tasksListToEdit {
             title = "Edit Task"
             textField.text = tasks.name
