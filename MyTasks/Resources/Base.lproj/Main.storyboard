@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dHC-dx-YyU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -149,7 +148,6 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8T3-QM-qZX">
                                                     <rect key="frame" x="314" y="14.5" width="51" height="31"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="onTintColor" name="secondMainColour"/>
                                                     <color key="thumbTintColor" systemColor="labelColor"/>
                                                     <connections>
@@ -191,11 +189,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="khB-Mg-3PR">
-                                                    <rect key="frame" x="151" y="23" width="230" height="35"/>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="khB-Mg-3PR">
+                                                    <rect key="frame" x="151" y="23" width="224" height="35"/>
                                                     <color key="tintColor" name="secondMainColour"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="230" id="b0M-7X-lbg"/>
+                                                        <constraint firstAttribute="width" constant="224" id="b0M-7X-lbg"/>
                                                     </constraints>
                                                 </datePicker>
                                             </subviews>
@@ -211,7 +209,7 @@
                                                 <constraint firstItem="khB-Mg-3PR" firstAttribute="top" secondItem="nbX-f9-qP6" secondAttribute="topMargin" constant="12" id="XdJ-4g-Fbw"/>
                                                 <constraint firstItem="Fwp-wO-kzi" firstAttribute="centerY" secondItem="nbX-f9-qP6" secondAttribute="centerY" id="fh8-7U-CBh"/>
                                                 <constraint firstItem="QmP-4a-RNv" firstAttribute="centerY" secondItem="nbX-f9-qP6" secondAttribute="centerY" id="kQL-Sn-7Jx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="khB-Mg-3PR" secondAttribute="trailing" constant="13" id="vQI-9E-Gqp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="khB-Mg-3PR" secondAttribute="trailing" constant="19" id="vQI-9E-Gqp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="detailBackgroundColours"/>
