@@ -33,4 +33,4 @@
 
 > You can use **_Source Control_** -> **_Clone_** to clone the app and see how it works.
 
-You can also see in detail with the project on [Behance](https://www.behance.net/gallery/120147431/MyTasks/).
+You can see the project in detail on [Behance](https://www.behance.net/gallery/121440785/MyTasks.
