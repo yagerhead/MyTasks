@@ -6,7 +6,7 @@
 ## MyTasks app written in Swift.
 
 
-<img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b7d2b2120147431.60ac22d1378f6.png" alt="MyTasks App Preview">
+<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/f4e961121814175.60cd0d7b5dcec.png" alt="MyTasks App Preview">
 
 ## Quick Review:
 
